@@ -1,19 +1,6 @@
-<!-- <script setup>
-  import { RouterLink, RouterView } from 'vue-router'
-  import HelloWorld from './components/HelloWorld.vue'
-
-  export default {
-    components: {},
-    created() {
-      this.loadToys
-    }
-  }
-</script> -->
-
 <script>
   import {RouterLink, RouterView} from 'vue-router';
-  import HelloWorld from './components/HelloWorld.vue'
-
+  import './assets/css/app-header.css';
   export default {
     created() {
       this.$store.dispatch({type: 'loadToys'});
@@ -23,18 +10,17 @@
 
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
+  <header class="app-header">
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/home">Home</RouterLink>
-        <RouterLink to="/toy">toys</RouterLink>
+      <h1 class="primary">Toys 🧸</h1>
+      <nav class="primary">
+        <RouterLink class="link" to="/">Home</RouterLink> | 
+        <RouterLink class="link" to="/toy">toys</RouterLink> |
+        <RouterLink class="link" to="/toy/chart">Charts</RouterLink> |
+        <RouterLink class="link" to="/about">About</RouterLink>
       </nav>
     </div>
   </header>
 
-  <RouterView />
+  <RouterView class="main-toy"/>
 </template>

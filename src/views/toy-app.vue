@@ -4,9 +4,6 @@ import toyList from '../cmps/toy-list.vue'
 
 export default {
     el: '#app',
-    created() {
-        console.log(this.toys)
-    },
     computed: {
         toys() {
             return this.$store.getters.toysForDisplay
@@ -34,7 +31,6 @@ export default {
 </script>
 
 <template>
-    <h1>Hello</h1>
     <toy-list v-if="toys && toys.length" 
         :toys="toys" 
         @removeToy="removeToy">

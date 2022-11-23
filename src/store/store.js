@@ -1,4 +1,5 @@
 import toyService from '../services/toy.service.js'
+import { utilService } from '../services/util.service.js'
 import Vuex from 'vuex'
 
 export const store = new Vuex.Store({
@@ -7,9 +8,25 @@ export const store = new Vuex.Store({
         toys: null,
     },
     getters: {
+        toys(state) {
+            return state.toys
+        },
         toysForDisplay(state) {
             return state.toys
         },
+        toysLables(state) {
+            const labels = []
+            var copyToys = JSON.parse(JSON.stringify(state.toys));
+            copyToys.forEach(toy => {
+                toy.labels.forEach(label => {
+                    const idx = labels.findIndex(currLabel => currLabel.label === label)
+                    console.log('idx', idx)
+                    if(idx < 0) labels.push({label, color: utilService.getRandomColor()})
+                })
+            })
+            console.log('labels', labels)
+            return labels
+        }
     },
     mutations: {
         setToys(state, toys) {

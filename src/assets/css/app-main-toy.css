@@ -1,0 +1,10 @@
+.main-toy {
+    overflow: auto;
+    flex-grow: 1;
+    background-color: #c6e0f9;
+}
+
+.main-toy .toys-list {
+    display: flex;
+    flex-wrap: wrap;
+}

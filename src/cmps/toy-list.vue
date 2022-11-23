@@ -1,8 +1,11 @@
 <script>
 import toyPreview from './toy-preview.vue';
+import '../assets/css/app-main-toy.css';
 
 export default {
-    props:['toys'],
+    props:{
+        toys: Array,
+    },
     computed:{
         getUser(){
             return this.$store.getters.getUser
@@ -16,8 +19,8 @@ export default {
 </script>
 
 <template>
- <section class="toys-list-container">
-        <ul class="toys-list clean-list ">
+ <section>
+        <ul class="toys-list clean-list">
             <li v-for="toy in toys">
                 <toy-preview :toy="toy" 
                     :key="toy._id" 
